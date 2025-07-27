@@ -35,10 +35,10 @@ splitwise_agent = Agent(
         "purchase different items. I carefully factor in taxes and ensure that each participant pays exactly for "
         "what they bought plus their fair share of taxes, so the process is transparent and fair."
     ),
-    llm=llm  # Assign the LLM to the agent
+    llm=llm  
 )
 
-splitwise_task = Task(  # Fixed typo: was "spitwise_task"
+splitwise_task = Task( 
     description="""
         You are given a bill in markdown format and details about who purchased which items.
         
@@ -79,7 +79,6 @@ crew = Crew(
     process=Process.sequential
 )
 
-# Main execution
 if __name__ == "__main__":
     bill_path = "bill.pdf"
     
@@ -91,11 +90,11 @@ if __name__ == "__main__":
             "details": {
                 "Jay": ["eggs", "milk", "apples"], 
                 "Bob": ["carrots", "balloons"],
-                "Christina": ["oranges"]  # Fixed capitalization for consistency
+                "Christina": ["oranges"]  
             }
         }
         
-        result = crew.kickoff(inputs=inputs)  # Use kickoff() instead of run()
+        result = crew.kickoff(inputs=inputs)  
         
         print("\n" + "="*50)
         print("BILL SPLITTING RESULT")
